@@ -1,0 +1,33 @@
+NAME:
+
+WPA-ing Out
+
+
+
+DIFFICULTY:
+
+medium
+
+
+
+DESCRIPTION:
+
+I thought that my password was super-secret, but it turns out that passwords passed over the AIR can be CRACKED, especially if I used the same wireless network password as one in the rockyou.txt credential dump.
+Use this "https://artifacts.picoctf.net/c/41/wpa-ing_out.pcap" and the rockyou wordlist. The flag should be entered in the picoCTF{XXXXXX} format.
+
+
+
+WRITE-UP:
+
+So first of all,we have a ".pcap" file ( "https://artifacts.picoctf.net/c/41/wpa-ing_out.pcap" ) and a wordlist ("rockyou wordlist").
+As you can see we need to crack the ".pcap" file to find the password (flag) and as you also know AIRCRACK can crack ".cap" and ".pcap" files.
+So I started a virtual Kali-Linux via VirtualBox to be able to use AIRCRACK.
+Afterwards I tried the passwords in "rockyou.txt" on the ".pcap" file with this code:
+"sudo aircrack-ng <PATH OF THE .pcap FILE> -w <PATH OF THE WORDLISt>"
+Afterwards we can see that the ".pcap" file has been cracked succesfully and we can also see that the password is "mickeymouse".
+Since it is not in the flag format ( "picoCTF{XXXXXX}" ),I transformed it into flag format( "picoCTF{mickeymouse}" ) just like it said in the description part.
+And there we go the flag is correct!
+
+Happy Hacking!
+
+Gameh0st
